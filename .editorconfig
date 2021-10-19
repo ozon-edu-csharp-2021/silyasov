@@ -1,0 +1,7 @@
+﻿[*]
+indent_style = tab
+
+[*.cs]
+indent_size = 4
+tab_width = 4
+end_of_line = crlf
