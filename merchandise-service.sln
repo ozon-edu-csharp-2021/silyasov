@@ -11,12 +11,12 @@ ProjectSection(SolutionItems) = preProject
 	.editorconfig = .editorconfig
 	.gitignore = .gitignore
 	Dockerfile = Dockerfile
-	docker-compose.yml = docker-compose.yml
+	deploy\docker-compose.yml = deploy\docker-compose.yml
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4CA3B30D-A691-4F4D-8E30-B4FCF9BA3EAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "merchandise-service", "src\merchandise-service\merchandise-service.csproj", "{C4727516-223A-460F-8998-FBD715A3B786}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchApi", "src\MerchApi\MerchApi.csproj", "{C4727516-223A-460F-8998-FBD715A3B786}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
