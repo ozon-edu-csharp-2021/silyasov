@@ -2,7 +2,7 @@
 
 services:
   merchandise-service:
-    build: .
+    build: ../.
     hostname: merchandise-service
     
   supply-service:
