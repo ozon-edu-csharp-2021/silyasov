@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>MerchApi</RootNamespace>
+    <RootNamespace>MerchandiseService</RootNamespace>
   </PropertyGroup>
 
 </Project>
