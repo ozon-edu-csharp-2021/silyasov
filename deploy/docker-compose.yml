@@ -1,9 +1,9 @@
 ﻿version: '3.8'
 
 services:
-  merchandise-service:
+  merchApi:
     build: ../.
-    hostname: merchandise-service
+    hostname: merchApi
     
   supply-service:
     image: 'ghcr.io/ozon-edu-csharp-2021/supply-service:main'
