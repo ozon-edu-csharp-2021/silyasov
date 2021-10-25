@@ -3,6 +3,13 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>MerchandiseService</RootNamespace>
+	  <Version>1.0.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Configuration" />
+    <Folder Include="Controllers" />
+    <Folder Include="Infrastructure" />
+  </ItemGroup>
 
 </Project>
