@@ -22,6 +22,8 @@ ProjectSection(SolutionItems) = preProject
 	deploy\docker-compose.yml = deploy\docker-compose.yml
 EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchandiseService.HttpClient", "src\MerchandiseService.HttpClient\MerchandiseService.HttpClient.csproj", "{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C4727516-223A-460F-8998-FBD715A3B786} = {B31DCD2A-14A3-45B2-AC83-145F6532D0FB}
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3} = {B31DCD2A-14A3-45B2-AC83-145F6532D0FB}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C4727516-223A-460F-8998-FBD715A3B786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -50,5 +53,17 @@ Global
 		{C4727516-223A-460F-8998-FBD715A3B786}.Release|x64.Build.0 = Release|Any CPU
 		{C4727516-223A-460F-8998-FBD715A3B786}.Release|x86.ActiveCfg = Release|Any CPU
 		{C4727516-223A-460F-8998-FBD715A3B786}.Release|x86.Build.0 = Release|Any CPU
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}.Debug|x64.Build.0 = Debug|Any CPU
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}.Debug|x86.Build.0 = Debug|Any CPU
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}.Release|x64.ActiveCfg = Release|Any CPU
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}.Release|x64.Build.0 = Release|Any CPU
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}.Release|x86.ActiveCfg = Release|Any CPU
+		{328FAC22-952A-424C-B0B2-EE0CC35B0FB3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

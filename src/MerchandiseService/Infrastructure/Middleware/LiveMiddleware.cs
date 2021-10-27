@@ -1,12 +1,12 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
 namespace MerchandiseService.Infrastructure.Middleware
 {
-	public class ReadyMiddleware
+	public class LiveMiddleware
 	{
 		private RequestDelegate _next;
-		public ReadyMiddleware(RequestDelegate next)
+		public LiveMiddleware(RequestDelegate next)
 		{
 			_next = next;
 		}

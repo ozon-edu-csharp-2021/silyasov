@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MerchandiseService.Infrastructure.Interceptors;
 using MerchandiseService.Infrastructure.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,7 +26,7 @@ namespace MerchandiseService
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-	        
+	        services.AddGrpc(options => options.Interceptors.Add<LoggingInterceptor>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +43,7 @@ namespace MerchandiseService
 		            await context.Response.WriteAsync("Hello World!");
 		            
 	            });
+	            endpoints.MapControllers();
             });
             
            
