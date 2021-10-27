@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using MerchandiseService.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MerchandiseService.Controllers
@@ -9,16 +10,25 @@ namespace MerchandiseService.Controllers
 	[Produces("application/json")]
 	public class MerchController : ControllerBase
 	{
+		private readonly IMerchService _merchService;
+
+		public MerchController(IMerchService merchService)
+		{
+			_merchService = merchService;
+		}
+
 		[HttpGet("getmerch/{merchId:int}")]
 		public async Task<IActionResult> GetMerch(int merchId, CancellationToken token)
 		{
-			return Ok($"You requested merch with id {merchId}");
+			var result = await Task.Run(() => _merchService.RequestMerch(merchId, token));
+			return Ok(result);
 		}
 
-		[HttpGet("getmerchinfo/{merchInfoId:int}")]
-		public async Task<IActionResult> GetMerchInfo(int merchInfoId, CancellationToken token)
+		[HttpGet("getmerchinfo/{merchId:int}")]
+		public async Task<IActionResult> GetMerchInfo(int merchId, CancellationToken token)
 		{
-			return Ok($"You requested info about merch with id {merchInfoId}");
+			var result = await Task.Run(() => _merchService.GetInfoAboutMerch(merchId, token));
+			return Ok(result);
 		}
 	}
 }
