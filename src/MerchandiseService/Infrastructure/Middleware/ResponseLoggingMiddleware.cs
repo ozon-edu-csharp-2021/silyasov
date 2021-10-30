@@ -28,9 +28,10 @@ namespace MerchandiseService.Infrastructure.Middleware
 			{
 				var headers = string.Join(',', context.Response.Headers);
 				var route = context.Request.Path;
-				_logger.LogInformation("Response logged");
-				_logger.LogInformation($"Headers: {headers}");
-				_logger.LogInformation($"Path: {route}");
+				_logger.LogInformation(
+					$"Response logged" +
+					$"\nHeaders: {headers}" +
+					$"\nPath: {route}");
 			}
 			catch (Exception e)
 			{

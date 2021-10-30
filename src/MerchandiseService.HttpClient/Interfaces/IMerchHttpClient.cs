@@ -8,6 +8,7 @@ namespace MerchandiseService.HttpClient.Interfaces
 	public interface IMerchHttpClient
 
 	{
-		Task<List<MerchModelResponse>> GetMerch(int merchId, CancellationToken token);
+		Task<List<MerchModelResponse>> GetMerchAsync(int merchId, CancellationToken token);
+		Task<List<MerchModelResponse>> GetMerchInfoAsync(int merchId, CancellationToken token);
 	}
 }

@@ -18,7 +18,7 @@ namespace MerchandiseService.GrpcServices
             GetMerchRequest request,
             ServerCallContext context)
         {
-            var merchId = _merchService.RequestMerch(request.ItemId, context.CancellationToken);
+            var merchId = await _merchService.RequestMerchAsync(request.ItemId, context.CancellationToken);
             return new GetMerchResponse
             {
                 ItemId = merchId,
@@ -28,7 +28,7 @@ namespace MerchandiseService.GrpcServices
 
         public override async Task<GetMerchInfoResponse> GetMerchInfo  (GetMerchRequest request, ServerCallContext context)
         {
-            var merchInfo = _merchService.GetInfoAboutMerch(request.ItemId, context.CancellationToken);
+            var merchInfo = await _merchService.GetInfoAboutMerchAsync(request.ItemId, context.CancellationToken);
             return new GetMerchInfoResponse
             {
                 ItemId = request.ItemId,

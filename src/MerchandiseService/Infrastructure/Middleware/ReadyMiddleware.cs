@@ -13,7 +13,7 @@ namespace MerchandiseService.Infrastructure.Middleware
 
 		public async Task InvokeAsync(HttpContext context)
 		{
-			await context.Response.WriteAsync("Ok");
+			await context.Response.WriteAsync("Ready");
 		}
 	}
 }

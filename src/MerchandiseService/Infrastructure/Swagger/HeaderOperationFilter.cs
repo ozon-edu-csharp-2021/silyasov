@@ -12,7 +12,7 @@ namespace MerchandiseService.Infrastructure.Swagger
 			operation.Parameters.Add(new OpenApiParameter
 			{
 				In = ParameterLocation.Header,
-				Name = "our-header",
+				Name = "Merchandise Service",
 				Required = false,
 				Schema = new OpenApiSchema {Type = "string"}
 			});

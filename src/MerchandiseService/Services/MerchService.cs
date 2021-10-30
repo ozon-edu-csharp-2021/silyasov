@@ -7,14 +7,14 @@ namespace MerchandiseService.Services
 {
 	public class MerchService : IMerchService
 	{
-		public int RequestMerch(int merchId, CancellationToken token)
+		public async Task<int> RequestMerchAsync(int merchId, CancellationToken token)
 		{
-			return merchId;
+			return await Task.Run(() => merchId, token);
 		}
 
-		public string GetInfoAboutMerch(int merchId, CancellationToken token)
+		public async Task<string> GetInfoAboutMerchAsync(int merchId, CancellationToken token)
 		{
-			return $"Info about merch {merchId}";
+			return await Task.Run(() => $"Info about merch {merchId}", token);
 		}
 	}
 }

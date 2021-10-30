@@ -1,10 +1,11 @@
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace MerchandiseService.Services.Interfaces
 {
 	public interface IMerchService
 	{
-		int RequestMerch(int merchId, CancellationToken token);
-		string GetInfoAboutMerch(int merchId, CancellationToken token);
+		Task<int> RequestMerchAsync(int merchId, CancellationToken token);
+		Task<string> GetInfoAboutMerchAsync(int merchId, CancellationToken token);
 	}
 }
