@@ -19,6 +19,9 @@ namespace MerchandiseService.Infrastructure.Extensions
 				services.AddSingleton<IStartupFilter, TerminalStartupFilter>();
 				services.AddSingleton<IStartupFilter, SwaggerStartupFilter>();
 				services.AddSingleton<IMerchService, MerchService>();
+				
+				services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
+				
 				services.AddSwaggerGen(options =>
 				{
 					options.SwaggerDoc("v1", new OpenApiInfo {Title = "MerchandiseService", Version = "v1"});
@@ -26,16 +29,6 @@ namespace MerchandiseService.Infrastructure.Extensions
 					options.OperationFilter<HeaderOperationFilter>();
 				});
 			});
-			return builder;
-		}
-        
-		public static IHostBuilder AddHttp(this IHostBuilder builder)
-		{
-			builder.ConfigureServices(services =>
-			{
-				services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
-			});
-            
 			return builder;
 		}
 	}
