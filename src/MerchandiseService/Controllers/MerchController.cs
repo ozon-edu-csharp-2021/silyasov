@@ -17,17 +17,17 @@ namespace MerchandiseService.Controllers
 			_merchService = merchService;
 		}
 
-		[HttpGet("merch/{merchId:int}")]
+		[HttpGet("{merchId:int}")]
 		public async Task<IActionResult> GetMerch(int merchId, CancellationToken token)
 		{
-			var result = await Task.Run(() => _merchService.RequestMerchAsync(merchId, token));
+			var result = await  _merchService.RequestMerchAsync(merchId, token);
 			return Ok(result);
 		}
 
-		[HttpGet("merchinfo/{merchId:int}")]
+		[HttpGet("{merchId:int}/info")]
 		public async Task<IActionResult> GetMerchInfo(int merchId, CancellationToken token)
 		{
-			var result = await Task.Run(() => _merchService.GetInfoAboutMerchAsync(merchId, token));
+			var result = await  _merchService.GetInfoAboutMerchAsync(merchId, token);
 			return Ok(result);
 		}
 	}

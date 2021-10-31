@@ -20,12 +20,12 @@ namespace MerchandiseService.Infrastructure.Interceptors
 			UnaryServerMethod<TRequest, TResponse> continuation)
 		{
 			var requestJson = JsonSerializer.Serialize(request);
-			_logger.LogInformation(requestJson);
+			_logger.LogInformation($"Выполняется запрос, body: {requestJson}");
             
 			var response = base.UnaryServerHandler(request, context, continuation);
 
 			var responseJson = JsonSerializer.Serialize(response);
-			_logger.LogInformation(responseJson);
+			_logger.LogInformation($"Получен ответ, body: {responseJson}");
             
 			return response;
 		}

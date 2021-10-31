@@ -9,12 +9,12 @@ namespace MerchandiseService.Services
 	{
 		public async Task<int> RequestMerchAsync(int merchId, CancellationToken token)
 		{
-			return await Task.Run(() => merchId, token);
+			return await Task.FromResult(merchId);
 		}
 
 		public async Task<string> GetInfoAboutMerchAsync(int merchId, CancellationToken token)
 		{
-			return await Task.Run(() => $"Info about merch {merchId}", token);
+			return await Task.FromResult($"Info about merch {merchId}");
 		}
 	}
 }
