@@ -29,12 +29,5 @@ namespace MerchandiseService.Infrastructure.Interceptors
             
 			return response;
 		}
-/*
-		public override AsyncServerStreamingCall<TResponse> AsyncServerStreamingCall<TRequest, TResponse>(TRequest request,
-			ClientInterceptorContext<TRequest, TResponse> context, AsyncServerStreamingCallContinuation<TRequest, TResponse> continuation)
-		{
-			_logger.LogInformation("Streaming has been called");
-			return base.AsyncServerStreamingCall(request, context, continuation);
-		}*/
 	}
 }

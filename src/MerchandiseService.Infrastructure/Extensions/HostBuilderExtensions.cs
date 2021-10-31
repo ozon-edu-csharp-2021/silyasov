@@ -1,8 +1,6 @@
-﻿using MerchandiseService.Infrastructure.Filters;
+using MerchandiseService.Infrastructure.Filters;
 using MerchandiseService.Infrastructure.StartupFilters;
 using MerchandiseService.Infrastructure.Swagger;
-using MerchandiseService.Services;
-using MerchandiseService.Services.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -18,7 +16,6 @@ namespace MerchandiseService.Infrastructure.Extensions
 			{
 				services.AddSingleton<IStartupFilter, TerminalStartupFilter>();
 				services.AddSingleton<IStartupFilter, SwaggerStartupFilter>();
-				services.AddSingleton<IMerchService, MerchService>();
 				
 				services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
 				

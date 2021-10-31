@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Configuration" />
     <Folder Include="Controllers" />
   </ItemGroup>
 
@@ -18,5 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MerchandiseService.Grpc\MerchandiseService.Grpc.csproj" />
+    <ProjectReference Include="..\MerchandiseService.Infrastructure\MerchandiseService.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

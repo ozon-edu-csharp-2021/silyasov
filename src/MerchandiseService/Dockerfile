@@ -3,13 +3,16 @@ WORKDIR /src
 COPY ["MerchandiseService/MerchandiseService.csproj", "src/MerchandiseService/"]
 COPY ["MerchandiseService.Grpc/MerchandiseService.Grpc.csproj", "src/MerchandiseService.Grpc/"]
 COPY ["MerchandiseService.HttpClient/MerchandiseService.HttpClient.csproj", "src/MerchandiseService.HttpClient/"]
+COPY ["MerchandiseService.Infrastructure/MerchandiseService.Infrastructure.csproj", "src/MerchandiseService.Infrastructure/"]
 
 RUN dotnet restore "src/MerchandiseService/MerchandiseService.csproj"
 RUN dotnet restore "src/MerchandiseService.Grpc/MerchandiseService.Grpc.csproj"
 RUN dotnet restore "src/MerchandiseService.HttpClient/MerchandiseService.HttpClient.csproj"
+RUN dotnet restore "src/MerchandiseService.Infrastructure/MerchandiseService.Infrastructure.csproj"
 
 COPY ../../ .
 WORKDIR /src
+RUN dotnet build "MerchandiseService.Infrastructure/MerchandiseService.Infrastructure.csproj" -c Release -o /app/build
 RUN dotnet build "MerchandiseService.HttpClient/MerchandiseService.HttpClient.csproj" -c Release -o /app/build
 RUN dotnet build "MerchandiseService.Grpc/MerchandiseService.Grpc.csproj" -c Release -o /app/build
 RUN dotnet build "MerchandiseService/MerchandiseService.csproj" -c Release -o /app/build
