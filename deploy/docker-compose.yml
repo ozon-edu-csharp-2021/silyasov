@@ -2,9 +2,11 @@
 
 services:
   merchandise-service:
-    build: ../.
+    build: 
+      context: ../src
+      dockerfile: ../src/MerchandiseService/Dockerfile
     hostname: merchandise-service
-    
+
   supply-service:
     image: 'ghcr.io/ozon-edu-csharp-2021/supply-service:main'
     hostname: supply_service
