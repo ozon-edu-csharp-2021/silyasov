@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
 using Grpc.Core;
 using MerchandiseService.Grpc;
-using MerchandiseService.Services.Interfaces;
+using MerchandiseService.Infrastructure.Services.Interfaces;
 
-namespace MerchandiseService.GrpcServices
+namespace MerchandiseService.Api.GrpcServices
 {
 	public class MerchandiseGrpcService : MerchandiseServiceGrpc.MerchandiseServiceGrpcBase
 	{

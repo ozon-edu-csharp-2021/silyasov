@@ -1,14 +1,15 @@
-using MerchandiseService.GrpcServices;
+using MerchandiseService.Api.GrpcServices;
 using MerchandiseService.Infrastructure.Interceptors;
-using MerchandiseService.Services;
-using MerchandiseService.Services.Interfaces;
+using MerchandiseService.Infrastructure.Services;
+using MerchandiseService.Infrastructure.Services.Interfaces;
+using MerchandiseService.Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace MerchandiseService
+namespace MerchandiseService.Api
 {
     public class Startup
     {

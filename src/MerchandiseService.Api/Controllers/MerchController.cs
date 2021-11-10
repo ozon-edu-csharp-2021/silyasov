@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using MerchandiseService.Services.Interfaces;
+using MerchandiseService.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MerchandiseService.Controllers
+namespace MerchandiseService.Api.Controllers
 {
 	[ApiController]
 	[Route("v1/api/merch")]
@@ -20,14 +20,14 @@ namespace MerchandiseService.Controllers
 		[HttpGet("{merchId:int}")]
 		public async Task<IActionResult> GetMerch(int merchId, CancellationToken token)
 		{
-			var result = await  _merchService.RequestMerchAsync(merchId, token);
+			var result = await _merchService.RequestMerchAsync(merchId, token);
 			return Ok(result);
 		}
 
 		[HttpGet("{merchId:int}/info")]
 		public async Task<IActionResult> GetMerchInfo(int merchId, CancellationToken token)
 		{
-			var result = await  _merchService.GetInfoAboutMerchAsync(merchId, token);
+			var result = await  _merchService.GetMerchPacksReceivedByEmployeeAsync(merchId, token);
 			return Ok(result);
 		}
 	}

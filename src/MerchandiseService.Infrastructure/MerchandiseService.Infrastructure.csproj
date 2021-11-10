@@ -18,4 +18,8 @@
 		<PackageReference Include="Grpc.Core.Api" Version="2.40.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
 	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\MerchandiseService.Domain\MerchandiseService.Domain.csproj" />
+	</ItemGroup>
 </Project>
