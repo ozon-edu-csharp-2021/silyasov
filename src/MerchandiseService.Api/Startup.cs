@@ -1,4 +1,6 @@
 using MerchandiseService.Api.GrpcServices;
+using MerchandiseService.Domain.AggregationModels.MerchRequestAggregate;
+using MerchandiseService.Domain.AggregationModels.MerchRequestAggregate.Interfaces;
 using MerchandiseService.Infrastructure.Interceptors;
 using MerchandiseService.Infrastructure.Services;
 using MerchandiseService.Infrastructure.Services.Interfaces;
@@ -23,6 +25,7 @@ namespace MerchandiseService.Api
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+	        services.AddSingleton<IMerchRequestRepository, MerchRequestRepository>();
 	        services.AddSingleton<IMerchService, MerchService>();
 	        services.AddGrpc(options => options.Interceptors.Add<LoggingInterceptor>());
         }

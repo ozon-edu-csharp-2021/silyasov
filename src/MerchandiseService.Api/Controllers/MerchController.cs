@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using MerchandiseService.Domain.AggregationModels.MerchRequestAggregate;
 using MerchandiseService.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,17 +18,17 @@ namespace MerchandiseService.Api.Controllers
 			_merchService = merchService;
 		}
 
-		[HttpGet("{merchId:int}")]
-		public async Task<IActionResult> GetMerch(int merchId, CancellationToken token)
+		[HttpGet]
+		public async Task<IActionResult> GetMerch([FromQuery]int employeeId, [FromQuery]int merchPackId, CancellationToken token)
 		{
-			var result = await _merchService.RequestMerchAsync(merchId, token);
+			var result = await _merchService.RequestMerchAsync(employeeId, merchPackId, EventType.GetMerchByRequest, token);
 			return Ok(result);
 		}
 
-		[HttpGet("{merchId:int}/info")]
-		public async Task<IActionResult> GetMerchInfo(int merchId, CancellationToken token)
+		[HttpGet("{employeeId:int}/info")]
+		public async Task<IActionResult> GetMerchInfo(int employeeId, CancellationToken token)
 		{
-			var result = await  _merchService.GetMerchPacksReceivedByEmployeeAsync(merchId, token);
+			var result = await  _merchService.GetMerchPacksReceivedByEmployeeAsync(employeeId, token);
 			return Ok(result);
 		}
 	}

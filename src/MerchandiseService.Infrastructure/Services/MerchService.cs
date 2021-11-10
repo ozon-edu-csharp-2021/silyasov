@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using CSharpCourse.Core.Lib.Enums;
 using MerchandiseService.Domain.AggregationModels.MerchPackAggregate;
 using MerchandiseService.Domain.AggregationModels.MerchRequestAggregate;
 using MerchandiseService.Domain.AggregationModels.MerchRequestAggregate.Interfaces;
@@ -16,16 +17,16 @@ namespace MerchandiseService.Infrastructure.Services
 		{
 			_merchRequestRepository = merchRequestRepository;
 		}
-		public async Task<string> RequestMerchAsync(int merchRequestId, CancellationToken token)
+		public async Task<string> RequestMerchAsync(int employeeId, int merchPackId, EventType eventType, CancellationToken token)
 		{
-			var eventType = await _merchRequestRepository.GetEmployeeEventType(merchRequestId, token);
-
 			if (eventType == EventType.GetMerchByRequest)
 			{
-				var employeeHasMerch = await _merchRequestRepository.CheckEmployeeHasMerch(merchRequestId, token);
+				var employeeHasMerch = await _merchRequestRepository.CheckEmployeeHasMerch(employeeId, merchPackId, token);
 				if (!employeeHasMerch)
 					return $"Employee already has merch pack!";
 			}
+			
+			var merchRequestId = await _merchRequestRepository.AddNewMerchRequest(employeeId, merchPackId, eventType);
 			
 			//Здесь должен быть запрос к stockApi, проверяющий, есть ли мерч на складе
 			
@@ -38,12 +39,12 @@ namespace MerchandiseService.Infrastructure.Services
 			
 			//Здесь должен быть запрос к stockApi, резервирующий мерч для сотрудника
 			
-			await _merchRequestRepository.SetStatusToMerchRequest(merchRequestId, MerchRequestStatus.EmployeeGotMerch, token);
+			_merchRequestRepository.SetStatusToMerchRequest(merchRequestId, MerchRequestStatus.EmployeeGotMerch, token);
 			
-			return "Employee got a merch pack!";
+			return await Task.FromResult("Merch pack reserved to employee!");
 		}
 
-		public async Task<IEnumerable<MerchPackType>> GetMerchPacksReceivedByEmployeeAsync(int employeeId, CancellationToken token)
+		public async Task<IEnumerable<int>> GetMerchPacksReceivedByEmployeeAsync(int employeeId, CancellationToken token)
 		{
 			return await _merchRequestRepository.GetMerchPacksReceivedByEmployee(employeeId, token);
 		}

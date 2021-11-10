@@ -1,4 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Google.Protobuf.Collections;
 using Grpc.Core;
 using MerchandiseService.Grpc;
 using MerchandiseService.Infrastructure.Services.Interfaces;
@@ -18,21 +22,22 @@ namespace MerchandiseService.Api.GrpcServices
             GetMerchRequest request,
             ServerCallContext context)
         {
-            var merchId = await _merchService.RequestMerchAsync(request.ItemId, context.CancellationToken);
-            return new GetMerchResponse
-            {
-                ItemId = merchId,
-                ItemName = "grpcMerch"
-            };
+	        return null;
+	        //    var response = await _merchService.RequestMerchAsync(request.MerchRequestId, context.CancellationToken);
+	        /*    return new GetMerchResponse
+	            {
+	                Response = response
+	            };*/
         }
 
-        public override async Task<GetMerchInfoResponse> GetMerchInfo  (GetMerchRequest request, ServerCallContext context)
+        public override async Task<GetMerchInfoResponse> GetMerchInfo  (GetMerchInfoRequest request, ServerCallContext context)
         {
-            var merchInfo = await _merchService.GetInfoAboutMerchAsync(request.ItemId, context.CancellationToken);
-            return new GetMerchInfoResponse
+            var merchInfo = await _merchService.GetMerchPacksReceivedByEmployeeAsync(request.EmployeeId, context.CancellationToken);
+            var merchPackTypes = merchInfo.Select(mi => mi);
+
+            return new GetMerchInfoResponse()
             {
-                ItemId = request.ItemId,
-                ItemName = merchInfo
+	            MerchPackType = string.Join(',', merchPackTypes)
             };
         }
 	}
