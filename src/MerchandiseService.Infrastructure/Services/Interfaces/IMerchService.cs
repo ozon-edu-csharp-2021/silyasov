@@ -10,6 +10,6 @@ namespace MerchandiseService.Infrastructure.Services.Interfaces
 	public interface IMerchService
 	{
 		Task<string> RequestMerchAsync(int employeeId, int merchPackId, EventType eventType, CancellationToken token);
-		Task<IEnumerable<int>> GetMerchPacksReceivedByEmployeeAsync(int employeeId, CancellationToken token);
+		Task<string> GetMerchPacksReceivedByEmployeeAsync(int employeeId, CancellationToken token);
 	}
 }

@@ -1,6 +1,6 @@
 using MerchandiseService.Domain.Models;
 
-namespace MerchandiseService.Domain.AggregationModels.MerchRequestAggregate
+namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 {
 	public class EventType: Enumeration
 	{

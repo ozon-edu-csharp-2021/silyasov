@@ -4,7 +4,7 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 {
 	public class MerchItem : Entity
 	{
-		public MerchItem(string name, ItemType type, Sku sku)
+		public MerchItem(string name, MerchItemType type, Sku sku)
 		{
 			Name = name;
 			Type = type;
@@ -12,7 +12,7 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 		}
 
 		private string Name { get; }
-		private ItemType Type { get; }
+		public MerchItemType Type { get; }
 		private Sku Sku { get; }
 	}
 }

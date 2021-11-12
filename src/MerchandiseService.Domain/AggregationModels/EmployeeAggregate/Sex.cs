@@ -12,7 +12,8 @@ namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate
 		{
 			if(sex is "Мужской" or "Женский")
 				Value = sex;
-			throw new NegativeValueException("Пол указан неправильно.");
+			else
+				throw new NegativeValueException("Пол указан неправильно.");
 		}
 		protected override IEnumerable<object> GetEqualityComponents()
 		{

@@ -10,7 +10,6 @@
 		<Folder Include="Filters" />
 		<Folder Include="Interceptors" />
 		<Folder Include="Middleware" />
-		<Folder Include="Repositories" />
 		<Folder Include="StartupFilters" />
 		<Folder Include="Swagger" />
 	</ItemGroup>

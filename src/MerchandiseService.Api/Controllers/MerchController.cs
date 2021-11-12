@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using MerchandiseService.Domain.AggregationModels.MerchRequestAggregate;
+using MerchandiseService.Domain.AggregationModels.MerchPackAggregate;
 using MerchandiseService.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

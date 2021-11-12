@@ -3,7 +3,7 @@ using MerchandiseService.Domain.Models;
 
 namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 {
-	public abstract class Sku : ValueObject
+	public class Sku : ValueObject
 	{
 		public long Value { get; }
         
