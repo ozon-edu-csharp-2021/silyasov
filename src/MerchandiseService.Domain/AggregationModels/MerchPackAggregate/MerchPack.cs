@@ -8,7 +8,7 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 	public class MerchPack : Entity
 	{
 		 private string Name { get; }
-		 private ICollection<MerchItem> MerchItems { get; } = new List<MerchItem>();
+		 private Dictionary<MerchItem, int> MerchItems { get; } = new();
 		 public MerchPackType Type { get; private set; }
 
 		 private MerchPackStatus _status;
@@ -18,7 +18,7 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 			 set => _status = value;
 		 }
 		
-		public MerchPack(int id, ICollection<MerchItem> merchItems, MerchPackType type, MerchPackStatus status)
+		public MerchPack(int id, Dictionary<MerchItem, int> merchItems, MerchPackType type, MerchPackStatus status)
 		{
 			Id = id;
 			Name = type.Name;
@@ -27,13 +27,13 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 			AddMerchItems(merchItems);
 		}
 
-		private void AddMerchItems(ICollection<MerchItem> merchItems)
+		private void AddMerchItems(Dictionary<MerchItem, int> merchItems)
 		{
 			var items = Type.GetMerchItemTypesList();
 			if (items.Count != merchItems.Count)
 				throw new Exception("Wrong num of elements in collection!");
 			foreach (var merchItem in merchItems) 
-				MerchItems.Add(merchItem);
+				MerchItems.Add(merchItem.Key, merchItem.Value);
 		}
 	}
 }
