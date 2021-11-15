@@ -8,17 +8,18 @@ service MerchandiseServiceGrpc {
 }
 
 message GetMerchRequest {
-	int32 merch_request_id = 1;
+	int32 employee_id = 1;
+	int32 merch_pack_id = 2;
 }
 
-message GetMerchInfoRequest{
+message GetMerchInfoRequest {
 	int32 employee_id = 1;
 }
 
 message GetMerchResponse {
-	string response  = 1;
+	string response = 1;
 }
 
 message GetMerchInfoResponse {
-	string merch_pack_type = 1;
+	string merch_packs = 1;
 }

@@ -1,7 +1,9 @@
+using MediatR;
 using MerchandiseService.Api.GrpcServices;
+using MerchandiseService.Domain.AggregationModels.EmployeeAggregate;
 using MerchandiseService.Domain.AggregationModels.EmployeeAggregate.Interfaces;
-using MerchandiseService.Domain.AggregationModels.MerchRequestAggregate;
 using MerchandiseService.Infrastructure.Interceptors;
+using MerchandiseService.Infrastructure.MediatR.Handlers;
 using MerchandiseService.Infrastructure.Services;
 using MerchandiseService.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -24,8 +26,9 @@ namespace MerchandiseService.Api
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-	        services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
+	        services.AddSingleton<IEmployeeRepository, EmployeeRepositoryStub>();
 	        services.AddSingleton<IMerchService, MerchService>();
+	        services.AddMediatR(typeof(MerchRequestHandler));
 	        services.AddGrpc(options => options.Interceptors.Add<LoggingInterceptor>());
         }
 

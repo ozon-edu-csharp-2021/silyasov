@@ -1,7 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
 using MerchandiseService.Domain.AggregationModels.MerchPackAggregate;
-using MerchandiseService.Infrastructure.Services.Interfaces;
+using MerchandiseService.Infrastructure.MediatR.Requests;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MerchandiseService.Api.Controllers
@@ -11,24 +12,26 @@ namespace MerchandiseService.Api.Controllers
 	[Produces("application/json")]
 	public class MerchController : ControllerBase
 	{
-		private readonly IMerchService _merchService;
+		private readonly IMediator _mediator;
 
-		public MerchController(IMerchService merchService)
+		public MerchController(IMediator mediator)
 		{
-			_merchService = merchService;
+			_mediator = mediator;
 		}
 
 		[HttpGet]
 		public async Task<IActionResult> GetMerch([FromQuery]int employeeId, [FromQuery]int merchPackId, CancellationToken token)
 		{
-			var result = await _merchService.RequestMerchAsync(employeeId, merchPackId, EventType.GetMerchByRequest, token);
+			var merchRequest = new MerchRequest(employeeId, merchPackId, EventType.GetMerchByRequest);
+			var result = await _mediator.Send(merchRequest, token);
 			return Ok(result);
 		}
 
 		[HttpGet("{employeeId:int}/info")]
 		public async Task<IActionResult> GetMerchInfo(int employeeId, CancellationToken token)
 		{
-			var result = await  _merchService.GetMerchPacksReceivedByEmployeeAsync(employeeId, token);
+			var merchRequest = new EmployeeRequest(employeeId);
+			var result = await _mediator.Send(merchRequest, token);
 			return Ok(result);
 		}
 	}

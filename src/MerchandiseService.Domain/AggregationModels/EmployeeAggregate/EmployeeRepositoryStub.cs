@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using MerchandiseService.Domain.AggregationModels.EmployeeAggregate;
 using MerchandiseService.Domain.AggregationModels.EmployeeAggregate.Interfaces;
 using MerchandiseService.Domain.AggregationModels.MerchPackAggregate;
 using MerchandiseService.Domain.Contracts;
 
-namespace MerchandiseService.Domain.AggregationModels.MerchRequestAggregate
+namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate
 {
-	public class EmployeeRepository : IEmployeeRepository
+	public class EmployeeRepositoryStub : IEmployeeRepository
 	{
 		public IUnitOfWork UnitOfWork { get; }
 

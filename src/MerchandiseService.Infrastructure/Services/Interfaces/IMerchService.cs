@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using MerchandiseService.Domain.AggregationModels.MerchPackAggregate;
-using MerchandiseService.Domain.AggregationModels.MerchRequestAggregate;
 
 namespace MerchandiseService.Infrastructure.Services.Interfaces
 {
