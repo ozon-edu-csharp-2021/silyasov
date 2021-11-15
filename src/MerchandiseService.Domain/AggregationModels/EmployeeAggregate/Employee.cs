@@ -1,28 +1,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using MerchandiseService.Domain.AggregationModels.MerchPackAggregate;
+using MerchandiseService.Domain.Exceptions;
 using MerchandiseService.Domain.Models;
 
 namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate
 {
 	public class Employee : Entity
 	{
-		private Name Name;
-		private Sex Sex;
-		private ClothingSize ClothingSize;
-		private ShoesSize ShoesSize;
-		private HireDate HireDate;
+		private string _firstName;
+		private string _lastName;
+		private Sex _sex;
+		private ClothingSize _clothingSize;
+		private HireDate _hireDate;
 
-		private ICollection<MerchPack> _merchPacks = new List<MerchPack>();
+		private readonly ICollection<MerchPack> _merchPacks = new List<MerchPack>();
 
-		public Employee(int id, Name name, Sex sex, ClothingSize clothingSize, ShoesSize shoesSize, HireDate hireDate)
+		public Employee(int id, string firstName, string lastName, Sex sex, ClothingSize clothingSize, HireDate hireDate)
 		{
 			Id = id;
-			Name = name;
-			Sex = sex;
-			ClothingSize = clothingSize;
-			ShoesSize = shoesSize;
-			HireDate = hireDate;
+			_firstName = firstName;
+			_lastName = lastName;
+			_sex = sex;
+			SetClothingSize(clothingSize);
+			_hireDate = hireDate;
+		}
+
+		public void SetClothingSize(ClothingSize size)
+		{
+			_clothingSize = size ?? throw new NegativeValueException("Указан неправильный размер.");
 		}
 
 		public bool HasMerchPack(int merchPackId)

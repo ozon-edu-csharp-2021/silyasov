@@ -33,16 +33,16 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 			MerchItemType.Coupon
 		});
 
-		private readonly ICollection<MerchItemType> _merchItems;
+		private readonly ICollection<MerchItemType> _merchItemTypes;
 
-		public MerchPackType(int id, string name, ICollection<MerchItemType> merchItems) : base(id, name)
+		public MerchPackType(int id, string name, ICollection<MerchItemType> merchItemTypes) : base(id, name)
 		{
-			_merchItems = merchItems;
+			_merchItemTypes = merchItemTypes;
 		}
 
-		public ICollection<MerchItemType> GetMerchItemsList()
+		public ICollection<MerchItemType> GetMerchItemTypesList()
 		{
-			return _merchItems;
+			return _merchItemTypes;
 		}
 	}
 }

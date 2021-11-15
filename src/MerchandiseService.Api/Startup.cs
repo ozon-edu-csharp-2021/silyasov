@@ -2,6 +2,8 @@ using MediatR;
 using MerchandiseService.Api.GrpcServices;
 using MerchandiseService.Domain.AggregationModels.EmployeeAggregate;
 using MerchandiseService.Domain.AggregationModels.EmployeeAggregate.Interfaces;
+using MerchandiseService.Domain.AggregationModels.MerchPackAggregate;
+using MerchandiseService.Domain.AggregationModels.MerchPackAggregate.Interfaces;
 using MerchandiseService.Infrastructure.Interceptors;
 using MerchandiseService.Infrastructure.MediatR.Handlers;
 using MerchandiseService.Infrastructure.Services;
@@ -27,6 +29,7 @@ namespace MerchandiseService.Api
         public void ConfigureServices(IServiceCollection services)
         {
 	        services.AddSingleton<IEmployeeRepository, EmployeeRepositoryStub>();
+	        services.AddSingleton<IMerchPackRepository, MerchPackRepositoryStub>();
 	        services.AddSingleton<IMerchService, MerchService>();
 	        services.AddMediatR(typeof(MerchRequestHandler));
 	        services.AddGrpc(options => options.Interceptors.Add<LoggingInterceptor>());

@@ -48,12 +48,5 @@ namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate.Interfac
 		/// <param name="employeeId"></param>
 		/// <returns></returns>
 		Task<bool> HasEmployee(int employeeId);
-
-		/// <summary>
-		/// Временный метод, проверка, существует ли мерчпак
-		/// </summary>
-		/// <param name="merchPackId"></param>
-		/// <returns></returns>
-		Task<bool> HasMerchPack(int merchPackId);
 	}
 }

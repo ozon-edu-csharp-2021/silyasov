@@ -4,20 +4,13 @@ using MerchandiseService.Domain.Exceptions;
 
 namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate
 {
-	public class Sex : ValueObject
+	public class Sex : Enumeration
 	{
-		public string Value { get; }
-        
-		public Sex(string sex)
+		public static Sex Male = new (1, "Мужской");
+		public static Sex Female = new (2, "Женский");
+
+		public Sex(int id, string name) : base(id, name)
 		{
-			if(sex is "Мужской" or "Женский")
-				Value = sex;
-			else
-				throw new NegativeValueException("Пол указан неправильно.");
-		}
-		protected override IEnumerable<object> GetEqualityComponents()
-		{
-			yield return Value;
 		}
 	}
 }

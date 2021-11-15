@@ -29,7 +29,7 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 
 		private void AddMerchItems(ICollection<MerchItem> merchItems)
 		{
-			var items = Type.GetMerchItemsList();
+			var items = Type.GetMerchItemTypesList();
 			if (items.Count != merchItems.Count)
 				throw new Exception("Wrong num of elements in collection!");
 			foreach (var merchItem in merchItems) 
