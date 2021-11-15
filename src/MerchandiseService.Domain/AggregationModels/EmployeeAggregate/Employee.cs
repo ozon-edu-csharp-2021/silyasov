@@ -28,7 +28,7 @@ namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate
 
 		public void SetClothingSize(ClothingSize size)
 		{
-			_clothingSize = size ?? throw new NegativeValueException("Указан неправильный размер.");
+			_clothingSize = size ?? throw new NegativeValueException("Размер не указан.");
 		}
 
 		public bool HasMerchPack(int merchPackId)

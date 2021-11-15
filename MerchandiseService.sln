@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchandiseService.Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchandiseService.Domain", "src\MerchandiseService.Domain\MerchandiseService.Domain.csproj", "{DB704397-EFB0-4979-A3B7-FD22AACE2AB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchandiseService.Domain.Tests", "MerchandiseService.Domain.Tests\MerchandiseService.Domain.Tests.csproj", "{39E6875A-2262-48C2-A7CE-F85A8F4D642C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,7 @@ Global
 		{45C2D18C-AF27-4E12-AEBE-2F59BDFE01E8} = {B31DCD2A-14A3-45B2-AC83-145F6532D0FB}
 		{93BFEB77-52EA-4D12-B68B-6682C3347FE4} = {B31DCD2A-14A3-45B2-AC83-145F6532D0FB}
 		{DB704397-EFB0-4979-A3B7-FD22AACE2AB9} = {B31DCD2A-14A3-45B2-AC83-145F6532D0FB}
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C} = {4CA3B30D-A691-4F4D-8E30-B4FCF9BA3EAB}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C4727516-223A-460F-8998-FBD715A3B786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -110,5 +113,17 @@ Global
 		{DB704397-EFB0-4979-A3B7-FD22AACE2AB9}.Release|x64.Build.0 = Release|Any CPU
 		{DB704397-EFB0-4979-A3B7-FD22AACE2AB9}.Release|x86.ActiveCfg = Release|Any CPU
 		{DB704397-EFB0-4979-A3B7-FD22AACE2AB9}.Release|x86.Build.0 = Release|Any CPU
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Debug|x64.Build.0 = Debug|Any CPU
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Debug|x86.Build.0 = Debug|Any CPU
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Release|x64.ActiveCfg = Release|Any CPU
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Release|x64.Build.0 = Release|Any CPU
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Release|x86.ActiveCfg = Release|Any CPU
+		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
