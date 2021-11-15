@@ -9,7 +9,7 @@ namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate
 		public static Sex Male = new (1, "Мужской");
 		public static Sex Female = new (2, "Женский");
 
-		public Sex(int id, string name) : base(id, name)
+		private Sex(int id, string name) : base(id, name)
 		{
 		}
 	}

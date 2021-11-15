@@ -35,7 +35,7 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 
 		private readonly ICollection<MerchItemType> _merchItemTypes;
 
-		public MerchPackType(int id, string name, ICollection<MerchItemType> merchItemTypes) : base(id, name)
+		private MerchPackType(int id, string name, ICollection<MerchItemType> merchItemTypes) : base(id, name)
 		{
 			_merchItemTypes = merchItemTypes;
 		}

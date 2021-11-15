@@ -10,7 +10,7 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 		public static EventType ConferenceSpeaker = new(4, nameof(ConferenceSpeaker));
 		public static EventType EmployeeDismissal = new(5, nameof(EmployeeDismissal));
 		
-		public EventType(int id, string name) : base(id, name)
+		private EventType(int id, string name) : base(id, name)
 		{
 		}
 	}
