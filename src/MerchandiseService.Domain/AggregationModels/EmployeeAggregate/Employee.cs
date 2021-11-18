@@ -41,9 +41,12 @@ namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate
 			return _merchPacks.FirstOrDefault(mp=> mp.Id == merchPackId);
 		}
 
-		public string GetAllMerchPackTypes()
+		public string GetAllReceivedMerchPacks(MerchPackStatus status)
 		{
-			return string.Join(',', _merchPacks.Select(mp => mp.Type.Name));
+			return string
+				.Join(',', _merchPacks
+					.Where(mp => mp.Status == status)
+					.Select(mp => mp.Type.Name));
 		}
 
 		public void AddNewMerchPack(MerchPack merchPack)

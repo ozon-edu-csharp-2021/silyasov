@@ -53,7 +53,7 @@ namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate
 		{
 			var result = _employees
 				.FirstOrDefault(e => e.Id == employeeId)
-				?.GetAllMerchPackTypes();
+				?.GetAllReceivedMerchPacks(MerchPackStatus.Received);
 			return await Task.FromResult(result);
 		}
 
