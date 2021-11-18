@@ -42,9 +42,9 @@ namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate
 			throw new System.NotImplementedException();
 		}
 
-		public async Task<bool> CheckEmployeeHasMerchPack(int employeeId, int merchPackId, CancellationToken token)
+		public Task<bool> CheckEmployeeHasMerchPack(int employeeId, int merchPackId, CancellationToken token)
 		{
-			return await Task.FromResult(!_employees
+			return Task.FromResult(!_employees
 				.Any(e => e.Id == employeeId && e.HasMerchPack(merchPackId))
 			);
 		}
@@ -76,13 +76,13 @@ namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate
 
 		public async Task<bool> SetStatusToMerchRequest(int employeeId, int merchPackId, MerchPackStatus status, CancellationToken token)
 		{
-			var temp = _employees
+			var merchPack = _employees
 				.FirstOrDefault(e => e.Id == employeeId)
 				?.GetMerchPackById(merchPackId);
-			if (temp == null)
+			if (merchPack == null)
 				return false;
 			
-			temp.Status = status;
+			merchPack.Status = status;
 			return true;
 		}
 	}

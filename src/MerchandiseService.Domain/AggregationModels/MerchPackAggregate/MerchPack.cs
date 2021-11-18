@@ -8,6 +8,9 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 	public class MerchPack : Entity
 	{
 		 private string Name { get; }
+		 /// <summary>
+		 /// int - количество айтемов
+		 /// </summary>
 		 private Dictionary<MerchItem, int> MerchItems { get; } = new();
 		 public MerchPackType Type { get; private set; }
 
@@ -34,6 +37,11 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 				throw new Exception("Wrong num of elements in collection!");
 			foreach (var merchItem in merchItems) 
 				MerchItems.Add(merchItem.Key, merchItem.Value);
+		}
+		
+		private void AddMerchItem(MerchItem merchItem, int quantity)
+		{
+				MerchItems.Add(merchItem, quantity);
 		}
 	}
 }
