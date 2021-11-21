@@ -13,20 +13,14 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 		 /// </summary>
 		 private Dictionary<MerchItem, int> MerchItems { get; } = new();
 		 public MerchPackType Type { get; private set; }
-
-		 private MerchPackStatus _status;
-		 public MerchPackStatus Status
-		 {
-			 get => _status;
-			 set => _status = value;
-		 }
+		 public MerchPackStatus Status { get; private set; }
 		
-		public MerchPack(int id, Dictionary<MerchItem, int> merchItems, MerchPackType type, MerchPackStatus status)
+		public MerchPack(int id, Dictionary<MerchItem, int> merchItems, MerchPackType type)
 		{
 			Id = id;
 			Name = type.Name;
 			Type = type;
-			Status = status;
+			Status = MerchPackStatus.Requested;
 			AddMerchItems(merchItems);
 		}
 
@@ -41,7 +35,16 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 		
 		private void AddMerchItem(MerchItem merchItem, int quantity)
 		{
-				MerchItems.Add(merchItem, quantity);
+			MerchItems.Add(merchItem, quantity);
+		}
+
+		public void SetStatus(MerchPackStatus status)
+		{
+			if (Status == MerchPackStatus.Received)
+				throw new InvalidStatusException("Current status is \"Received\" and it cannot be changed.");
+			if (Status == MerchPackStatus.NotInStock && status == MerchPackStatus.Requested)
+				throw new InvalidStatusException("Invalid status change.");
+			Status = status;
 		}
 	}
 }
