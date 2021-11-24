@@ -4,19 +4,22 @@ package MerchandiseService;
 
 service MerchandiseServiceGrpc {
 	rpc GetMerch (GetMerchRequest) returns (GetMerchResponse);
-	rpc GetMerchInfo (GetMerchRequest) returns (GetMerchInfoResponse);
+	rpc GetMerchInfo (GetMerchInfoRequest) returns (GetMerchInfoResponse);
 }
 
 message GetMerchRequest {
-	int32 item_id = 1;
+	int32 employee_id = 1;
+	int32 merch_pack_id = 2;
+}
+
+message GetMerchInfoRequest {
+	int32 employee_id = 1;
 }
 
 message GetMerchResponse {
-	int32 item_id = 1;
-	string item_name = 2;
+	string response = 1;
 }
 
 message GetMerchInfoResponse {
-	int32 item_id = 1;
-	string item_name = 2;
+	repeated string merch_packs = 1;
 }

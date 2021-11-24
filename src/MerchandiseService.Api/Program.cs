@@ -2,7 +2,7 @@ using MerchandiseService.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace MerchandiseService
+namespace MerchandiseService.Api
 {
     public class Program
     {
