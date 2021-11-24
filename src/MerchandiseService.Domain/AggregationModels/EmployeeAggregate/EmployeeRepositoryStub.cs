@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -49,7 +50,7 @@ namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate
 			);
 		}
 
-		async Task<string> IEmployeeRepository.GetMerchPacksReceivedByEmployee(int employeeId, CancellationToken token)
+		async Task<IEnumerable<string>> IEmployeeRepository.GetMerchPacksReceivedByEmployee(int employeeId, CancellationToken token)
 		{
 			var result = _employees
 				.FirstOrDefault(e => e.Id == employeeId)
@@ -82,7 +83,7 @@ namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate
 			if (merchPack == null)
 				return false;
 			
-			merchPack.Status = status;
+			merchPack.SetStatus(status);
 			return true;
 		}
 	}

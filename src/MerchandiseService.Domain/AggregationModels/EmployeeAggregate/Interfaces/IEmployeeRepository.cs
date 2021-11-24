@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using MerchandiseService.Domain.AggregationModels.MerchPackAggregate;
@@ -32,7 +33,7 @@ namespace MerchandiseService.Domain.AggregationModels.EmployeeAggregate.Interfac
 		/// <param name="employeeId"></param>
 		/// <param name="token"></param>
 		/// <returns></returns>
-		Task<string> GetMerchPacksReceivedByEmployee(int employeeId, CancellationToken token);
+		Task<IEnumerable<string>> GetMerchPacksReceivedByEmployee(int employeeId, CancellationToken token);
 		
 		/// <summary>
 		/// Добавление нового мерчпака

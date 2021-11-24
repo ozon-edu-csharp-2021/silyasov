@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using MerchandiseService.Domain.AggregationModels.EmployeeAggregate.Interfaces;
 using MerchandiseService.Domain.AggregationModels.MerchPackAggregate;
@@ -51,7 +52,7 @@ namespace MerchandiseService.Infrastructure.Services
 			return await Task.FromResult("Merch pack reserved to employee!");
 		}
 
-		public async Task<string> GetMerchPacksReceivedByEmployeeAsync(int employeeId, CancellationToken token)
+		public async Task<IEnumerable<string>> GetMerchPacksReceivedByEmployeeAsync(int employeeId, CancellationToken token)
 		{
 			return await _employeeRepository.GetMerchPacksReceivedByEmployee(employeeId, token);
 		}

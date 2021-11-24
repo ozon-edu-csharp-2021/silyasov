@@ -20,8 +20,7 @@ namespace MerchandiseService.Domain.AggregationModels.MerchPackAggregate
 					{new("Black cup", MerchItemType.Cup, new(395444)), 1},
 					{new("10% discount Tehnosila", MerchItemType.Coupon, new(443123)),3}
 				}, 
-				MerchPackType.StarterPack, 
-				MerchPackStatus.Requested)
+				MerchPackType.StarterPack)
 		};
 		
 		public async Task<MerchPack> CreateAsync(MerchPack itemToCreate, CancellationToken cancellationToken = default)

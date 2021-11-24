@@ -21,5 +21,5 @@ message GetMerchResponse {
 }
 
 message GetMerchInfoResponse {
-	string merch_packs = 1;
+	repeated string merch_packs = 1;
 }

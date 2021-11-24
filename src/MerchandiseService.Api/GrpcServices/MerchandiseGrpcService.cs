@@ -31,11 +31,9 @@ namespace MerchandiseService.Api.GrpcServices
         {
 	        var employeeRequest = request.ToMediatorEmployeeRequest();
 	        var result = await _mediator.Send(employeeRequest, context.CancellationToken);
-	        
-            return new GetMerchInfoResponse
-            {
-	            MerchPacks = result
-            };
+	        var response = new GetMerchInfoResponse();
+	        response.MerchPacks.AddRange(result);
+            return response;
         }
 	}
 }
