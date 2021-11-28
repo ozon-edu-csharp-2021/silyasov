@@ -3,8 +3,10 @@
 services:
   merchandise-service:
     build: 
-      context: ../src
-      dockerfile: ../src/MerchandiseService/Dockerfile
+      context: ../.
+      dockerfile: ../merchandise-service/src/MerchandiseService.Api/Dockerfile
+    environment:
+      DatabaseConnectionOptions__ConnectionString: "Host=host.docker.internal;Port=5428;Database=merch-api;Username=postgres;Password=merchApiPassword"
     hostname: merchandise-service
 
   supply-service:
@@ -44,7 +46,7 @@ services:
       POSTGRES_PASSWORD: supplyServicePassword
       POSTGRES_DB: supply-service
 
-  employees-service-db:
+  employees-service-postgres-db:
     image: postgres:latest
     ports:
       - "5425:5432"
@@ -63,6 +65,15 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: stockApiPassword
       POSTGRES_DB: stock-api
+      
+  merch-api-db:
+    image: postgres:latest
+    ports:
+      - "5428:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: merchApiPassword
+      POSTGRES_DB: merch-api
   
   
   

@@ -11,6 +11,7 @@ ProjectSection(SolutionItems) = preProject
 	.editorconfig = .editorconfig
 	.gitignore = .gitignore
 	MerchServiceBoundedContestCanvas.drawio = MerchServiceBoundedContestCanvas.drawio
+	entrypoint.sh = entrypoint.sh
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4CA3B30D-A691-4F4D-8E30-B4FCF9BA3EAB}"
@@ -32,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchandiseService.Domain",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchandiseService.Domain.Tests", "MerchandiseService.Domain.Tests\MerchandiseService.Domain.Tests.csproj", "{39E6875A-2262-48C2-A7CE-F85A8F4D642C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchandiseService.Migrator", "src\MerchandiseService.Migrator\MerchandiseService.Migrator.csproj", "{C8457308-B3AF-439A-A417-5D2F7C569F97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +54,7 @@ Global
 		{93BFEB77-52EA-4D12-B68B-6682C3347FE4} = {B31DCD2A-14A3-45B2-AC83-145F6532D0FB}
 		{DB704397-EFB0-4979-A3B7-FD22AACE2AB9} = {B31DCD2A-14A3-45B2-AC83-145F6532D0FB}
 		{39E6875A-2262-48C2-A7CE-F85A8F4D642C} = {4CA3B30D-A691-4F4D-8E30-B4FCF9BA3EAB}
+		{C8457308-B3AF-439A-A417-5D2F7C569F97} = {B31DCD2A-14A3-45B2-AC83-145F6532D0FB}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C4727516-223A-460F-8998-FBD715A3B786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -125,5 +129,17 @@ Global
 		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Release|x64.Build.0 = Release|Any CPU
 		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Release|x86.ActiveCfg = Release|Any CPU
 		{39E6875A-2262-48C2-A7CE-F85A8F4D642C}.Release|x86.Build.0 = Release|Any CPU
+		{C8457308-B3AF-439A-A417-5D2F7C569F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8457308-B3AF-439A-A417-5D2F7C569F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8457308-B3AF-439A-A417-5D2F7C569F97}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C8457308-B3AF-439A-A417-5D2F7C569F97}.Debug|x64.Build.0 = Debug|Any CPU
+		{C8457308-B3AF-439A-A417-5D2F7C569F97}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C8457308-B3AF-439A-A417-5D2F7C569F97}.Debug|x86.Build.0 = Debug|Any CPU
+		{C8457308-B3AF-439A-A417-5D2F7C569F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8457308-B3AF-439A-A417-5D2F7C569F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8457308-B3AF-439A-A417-5D2F7C569F97}.Release|x64.ActiveCfg = Release|Any CPU
+		{C8457308-B3AF-439A-A417-5D2F7C569F97}.Release|x64.Build.0 = Release|Any CPU
+		{C8457308-B3AF-439A-A417-5D2F7C569F97}.Release|x86.ActiveCfg = Release|Any CPU
+		{C8457308-B3AF-439A-A417-5D2F7C569F97}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
