@@ -10,7 +10,8 @@ namespace MerchandiseService.Migrator.Migrations
 			Create
 				.Table("merch_packs_items_maps")
 				.WithColumn("merch_pack_id").AsInt32().PrimaryKey()
-				.WithColumn("merch_pack_item_id").AsInt32().PrimaryKey();
+				.WithColumn("merch_item_id").AsInt32().PrimaryKey()
+				.WithColumn("quantity").AsInt32().NotNullable();
 		}
 
 		public override void Down()

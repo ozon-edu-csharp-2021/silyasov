@@ -13,7 +13,7 @@ namespace MerchandiseService.Migrator.Migrations
 				.WithColumn("first_name").AsString().NotNullable()
 				.WithColumn("last_name").AsString().NotNullable()
 				.WithColumn("sex").AsInt32().NotNullable()
-				.WithColumn("clothing_size").AsInt32().NotNullable()
+				.WithColumn("clothing_size_id").AsInt32().NotNullable()
 				.WithColumn("hire_date").AsDate().NotNullable();
 		}
 

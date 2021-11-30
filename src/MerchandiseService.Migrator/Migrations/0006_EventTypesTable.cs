@@ -9,7 +9,7 @@ namespace MerchandiseService.Migrator.Migrations
 		{
 			Create
 				.Table("event_types")
-				.WithColumn("id").AsInt32().PrimaryKey()
+				.WithColumn("event_type_id").AsInt32().PrimaryKey()
 				.WithColumn("name").AsString().NotNullable();
 		}
 

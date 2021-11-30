@@ -9,7 +9,8 @@ namespace MerchandiseService.Migrator.Migrations
 		{
 			Create
 				.Table("merch_items")
-				.WithColumn("id").AsInt32().PrimaryKey()
+				.WithColumn("merch_item_id").AsInt32().PrimaryKey()
+				.WithColumn("name").AsString().NotNullable()
 				.WithColumn("merch_item_type_id").AsInt32().NotNullable()
 				.WithColumn("sku").AsInt32().NotNullable();
 		}

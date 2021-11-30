@@ -9,7 +9,7 @@ namespace MerchandiseService.Migrator.Migrations
 		{
 			Create
 				.Table("clothing_sizes")
-				.WithColumn("id").AsInt32().PrimaryKey()
+				.WithColumn("clothing_size_id").AsInt32().PrimaryKey()
 				.WithColumn("name").AsString().NotNullable();
 		}
 
